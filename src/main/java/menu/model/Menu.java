@@ -1,5 +1,7 @@
 package menu.model;
 
+import java.util.Arrays;
+
 public enum Menu {
     GYU_DONG(Category.JAPANESE, "규동"),
     U_DONG(Category.JAPANESE, "우동"),
@@ -57,5 +59,10 @@ public enum Menu {
     Menu(Category category, String name) {
         this.category = category;
         this.name = name;
+    }
+
+    public static boolean hasMenuName(String name) {
+        return Arrays.stream(Menu.values())
+                .anyMatch(menu -> menu.name.equals(name));
     }
 }

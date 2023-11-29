@@ -1,6 +1,7 @@
 package menu.model;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import menu.constant.ExceptionMessage;
 
 public class CoachNames {
@@ -29,5 +30,11 @@ public class CoachNames {
         if (size > MAXIMUM_COACHES_SIZE) {
             throw new IllegalArgumentException(ExceptionMessage.MORE_THAN_MAXIMUM_COACHES_SIZE.getMessage());
         }
+    }
+
+    public List<String> getCoachNames() {
+        return coachNames.stream()
+                .map(CoachName::getName)
+                .collect(Collectors.toUnmodifiableList());
     }
 }

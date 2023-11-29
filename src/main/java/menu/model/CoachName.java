@@ -36,4 +36,8 @@ public class CoachName {
             throw new IllegalArgumentException(ExceptionMessage.MORE_THAN_MAXIMUM_COACH_NAME.getMessage());
         }
     }
+
+    public String getName() {
+        return name;
+    }
 }

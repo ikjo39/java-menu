@@ -3,6 +3,7 @@ package menu.controller;
 import java.util.List;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
+import menu.model.CanNotEatMenu;
 import menu.model.CoachName;
 import menu.model.CoachNames;
 import menu.view.InputView;
@@ -20,6 +21,14 @@ public class MenuRecommendationController {
     public void run() {
         outputView.printIntroduction();
         CoachNames coachNames = getCoaches();
+        List<String> names = coachNames.getCoachNames();
+        List<CanNotEatMenu> canNotEatMenus = getCanNotEatMenus(names);
+    }
+
+    private List<CanNotEatMenu> getCanNotEatMenus(List<String> names) {
+        return retryUntilSuccess(() ->  names.stream()
+                .map(name -> new CanNotEatMenu(inputView.readCanNotEatMenu(name)))
+                .collect(Collectors.toUnmodifiableList()));
     }
 
     private CoachNames getCoaches() {
