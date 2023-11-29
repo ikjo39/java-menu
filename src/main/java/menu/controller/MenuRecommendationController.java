@@ -13,6 +13,6 @@ public class MenuRecommendationController {
     }
 
     public void run() {
-
+        outputView.printIntroduction();
     }
 }
