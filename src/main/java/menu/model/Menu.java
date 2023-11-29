@@ -1,6 +1,8 @@
 package menu.model;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public enum Menu {
     GYU_DONG(Category.JAPANESE, "규동"),
@@ -64,5 +66,16 @@ public enum Menu {
     public static boolean hasMenuName(String name) {
         return Arrays.stream(Menu.values())
                 .anyMatch(menu -> menu.name.equals(name));
+    }
+
+    public static List<String> getMenusFrom(Category category) {
+        return Arrays.stream(Menu.values())
+                .filter(menu -> category.equals(menu.category))
+                .map(menu -> menu.name)
+                .collect(Collectors.toList());
+    }
+
+    public String getName() {
+        return name;
     }
 }

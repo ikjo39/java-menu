@@ -58,4 +58,8 @@ public class CanNotEatMenu {
             throw new IllegalArgumentException(ExceptionMessage.DUPLICATED_MENU_NAMES.getMessage());
         }
     }
+
+    public boolean contains(String menu) {
+        return menus.contains(menu);
+    }
 }
