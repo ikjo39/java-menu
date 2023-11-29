@@ -6,6 +6,8 @@ import menu.constant.ExceptionMessage;
 public class CanNotEatMenu {
     private static final int MENU_SIZE_WHEN_BLANK = 1;
     private static final int MENU_INDEX_WHEN_BLANK = 0;
+    private static final int MINIMUM_MENUS_SIZE = 0;
+    private static final int MAXIMUM_MENUS_SIZE = 2;
 
     private final List<String> menus;
 
@@ -15,8 +17,26 @@ public class CanNotEatMenu {
     }
 
     private void validateMenus(List<String> menus) {
+        validateMenusSize(menus.size());
         validateMenuName(menus);
         validateMenuNameDuplicated(menus);
+    }
+
+    private void validateMenusSize(int size) {
+        validateLessThanMinimumSize(size);
+        validateMoreThanMaximumSize(size);
+    }
+
+    private void validateLessThanMinimumSize(int size) {
+        if (size < MINIMUM_MENUS_SIZE) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void validateMoreThanMaximumSize(int size) {
+        if (size > MAXIMUM_MENUS_SIZE) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private void validateMenuName(List<String> menus) {
