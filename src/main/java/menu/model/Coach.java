@@ -9,13 +9,20 @@ public class Coach {
     private final String name;
 
     public Coach(String name) {
-        validateNameLength(name);
+        validateName(name);
         this.name = name;
     }
 
-    private void validateNameLength(String name) {
+    private void validateName(String name) {
+        validateEmptyName(name);
         validateLessThanMinimumLength(name);
         validateMoreThanMaximumLength(name);
+    }
+
+    private void validateEmptyName(String name) {
+        if (name.isBlank()) {
+            throw new IllegalArgumentException(ExceptionMessage.BLANK_COACH_NAME.getMessage());
+        }
     }
 
     private void validateLessThanMinimumLength(String name) {
