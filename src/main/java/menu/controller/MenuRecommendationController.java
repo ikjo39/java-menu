@@ -21,8 +21,8 @@ public class MenuRecommendationController {
     public void run() {
         outputView.printIntroduction();
         CoachNames coachNames = getCoaches();
-        List<String> names = coachNames.getCoachNames();
-        List<CanNotEatMenu> canNotEatMenus = getCanNotEatMenus(names);
+        List<CanNotEatMenu> canNotEatMenus = getCanNotEatMenus(coachNames.getCoachNames());
+        outputView.printMenuRecommendationResults();
     }
 
     private List<CanNotEatMenu> getCanNotEatMenus(List<String> names) {
