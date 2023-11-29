@@ -6,4 +6,8 @@ public class OutputView {
     public void printIntroduction() {
         System.out.println(INTRODUCTION);
     }
+
+    public void printErrorMessage(String message) {
+        System.out.println(message);
+    }
 }
