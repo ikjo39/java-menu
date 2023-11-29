@@ -3,8 +3,8 @@ package menu.controller;
 import java.util.List;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
-import menu.model.Coach;
-import menu.model.Coaches;
+import menu.model.CoachName;
+import menu.model.CoachNames;
 import menu.view.InputView;
 import menu.view.OutputView;
 
@@ -19,16 +19,16 @@ public class MenuRecommendationController {
 
     public void run() {
         outputView.printIntroduction();
-        Coaches coaches = getCoaches();
+        CoachNames coachNames = getCoaches();
     }
 
-    private Coaches getCoaches() {
-        return retryUntilSuccess(() -> new Coaches(getCoaches(inputView.readCoachNames())));
+    private CoachNames getCoaches() {
+        return retryUntilSuccess(() -> new CoachNames(getCoaches(inputView.readCoachNames())));
     }
 
-    private List<Coach> getCoaches(List<String> coachNames) {
+    private List<CoachName> getCoaches(List<String> coachNames) {
         return coachNames.stream()
-                .map(Coach::new)
+                .map(CoachName::new)
                 .collect(Collectors.toUnmodifiableList());
     }
 

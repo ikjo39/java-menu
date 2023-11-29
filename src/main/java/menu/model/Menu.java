@@ -1,6 +1,6 @@
 package menu.model;
 
-public enum Food {
+public enum Menu {
     GYU_DONG(Category.JAPANESE, "규동"),
     U_DONG(Category.JAPANESE, "우동"),
     MISO_SHIRU(Category.JAPANESE, "미소시루"),
@@ -49,13 +49,12 @@ public enum Food {
     BAGYETT(Category.WESTERN, "바게트"),
     SPAGHETTI(Category.WESTERN, "스파게티"),
     PIZZA(Category.WESTERN, "피자"),
-    PANINI(Category.WESTERN, "파니니")
-    ;
+    PANINI(Category.WESTERN, "파니니");
 
     private final Category category;
     private final String name;
 
-    Food(Category category, String name) {
+    Menu(Category category, String name) {
         this.category = category;
         this.name = name;
     }

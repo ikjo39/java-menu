@@ -2,13 +2,13 @@ package menu.model;
 
 import menu.constant.ExceptionMessage;
 
-public class Coach {
+public class CoachName {
     private static final int MINIMUM_COACH_NAME_LENGTH = 2;
     private static final int MAXIMUM_COACH_NAME_LENGTH = 4;
 
     private final String name;
 
-    public Coach(String name) {
+    public CoachName(String name) {
         validateName(name);
         this.name = name;
     }
@@ -36,5 +36,4 @@ public class Coach {
             throw new IllegalArgumentException(ExceptionMessage.MORE_THAN_MAXIMUM_COACH_NAME.getMessage());
         }
     }
-
 }

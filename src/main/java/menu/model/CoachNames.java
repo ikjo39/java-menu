@@ -3,15 +3,15 @@ package menu.model;
 import java.util.List;
 import menu.constant.ExceptionMessage;
 
-public class Coaches {
+public class CoachNames {
     private static final int MINIMUM_COACHES_SIZE = 2;
     private static final int MAXIMUM_COACHES_SIZE = 5;
 
-    private final List<Coach> coaches;
+    private final List<CoachName> coachNames;
 
-    public Coaches(List<Coach> coaches) {
-        validateCoachesSize(coaches.size());
-        this.coaches = coaches;
+    public CoachNames(List<CoachName> coachNames) {
+        validateCoachesSize(coachNames.size());
+        this.coachNames = coachNames;
     }
 
     private void validateCoachesSize(int size) {
